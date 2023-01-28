@@ -24,7 +24,7 @@ const App = () => {
 			<Content
 				style={{
 					padding: "5px",
-					margin: "0 auto 50px",
+					margin: "0 auto 85px",
 					width: "fit-content",
 					height: "fit-content",
 				}}
