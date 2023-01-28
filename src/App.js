@@ -24,7 +24,7 @@ const App = () => {
 			<Content
 				style={{
 					padding: "5px",
-					margin: "0 auto 85px",
+					margin: "0 auto 70px",
 					width: "fit-content",
 					height: "fit-content",
 				}}
@@ -71,8 +71,8 @@ const App = () => {
 
 			<Footer style={{ textAlign: "center" }}>
 				<small>
-					AI Art Generator ©2023 Created by John Q. (
-					<a href="https://twitter.com/romrauq">@romrauq</a>)
+					Developed by <a href="https://twitter.com/romrauq">John Q.</a> <br />
+					Powered by <a href="https://openai.com/">OpenAI</a>
 				</small>
 			</Footer>
 		</Layout>
