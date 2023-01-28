@@ -8,7 +8,7 @@ const InputText = ({ setUserInput }) => {
 	return (
 		<Input
 			style={{ marginTop: "25px", width: "300px" }}
-			placeholder="Enter your image description text here"
+			placeholder="Enter your image description here"
 			onChange={handleInputChange}
 		/>
 	);
