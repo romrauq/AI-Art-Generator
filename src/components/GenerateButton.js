@@ -1,7 +1,9 @@
 import { Button, Space } from "antd";
+import { useState } from "react";
 
 const GenerateButton = ({ userInput, suffixText, setImagePath }) => {
 	let user_input = userInput + " " + suffixText;
+
 	const fetchData = async (_prompt) => {
 		try {
 			const response = await fetch(
@@ -25,17 +27,32 @@ const GenerateButton = ({ userInput, suffixText, setImagePath }) => {
 		}
 	};
 
-	const handleClick = () => {
-		fetchData(user_input);
-		// console.log(user_input);
-	};
+	const [loadings, setLoadings] = useState([]);
+	const enterLoading = (index) => {
+		setLoadings((prevLoadings) => {
+			fetchData(user_input);
+			// console.log(user_input);
 
+			const newLoadings = [...prevLoadings];
+			newLoadings[index] = true;
+			return newLoadings;
+		});
+
+		setTimeout(() => {
+			setLoadings((prevLoadings) => {
+				const newLoadings = [...prevLoadings];
+				newLoadings[index] = false;
+				return newLoadings;
+			});
+		}, 12000);
+	};
 	return (
 		<Space direction="vertical">
 			<Space wrap>
 				<Button
 					type="primary"
-					onClick={handleClick}
+					loading={loadings[1]}
+					onClick={() => enterLoading(1)}
 					style={{ display: "block", width: "200px" }}
 				>
 					Generate Art
