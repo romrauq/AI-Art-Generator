@@ -6,19 +6,16 @@ const GenerateButton = ({ userInput, suffixText, setImagePath }) => {
 
 	const fetchData = async (_prompt) => {
 		try {
-			const response = await fetch(
-				"https://smart-design-api.herokuapp.com/openai/generateimage",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						prompt: _prompt,
-						size: "medium",
-					}),
-				}
-			);
+			const response = await fetch("http://localhost:5000/openai/generateimage", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					prompt: _prompt,
+					size: "medium",
+				}),
+			});
 
 			const data_response = await response.json();
 			setImagePath(data_response.data);
